@@ -9,6 +9,7 @@
 		<td>DATA DE NASCIMENTO</td>
 		<td>DETALHES</td>
 		<td>IMPRIMIR</td>
+		<td>EXCLUIR</td>
 	</tr>
 
 	<?php
@@ -57,6 +58,10 @@
 				<td class="resultada_consulta" align="center"><?php echo "<a href=alterar_registro.php?id=$id_registro><img src='img/icone_pesquisa.jpg' border='0'></a>"?></td>
 				
 				<td class="resultada_consulta" align="center"><?php echo "<a href=relatorios/rel_registro.php?id=$id_registro><img src='img/icone_mpressao.png' border='0'></a>"?></td>
+				
+				<td  class="resultada_consulta" align="center">
+					<?php echo "<a href=excluir_registro.php?id=".$id_registro." onclick=\"return confirm('Tem certeza que deseja Excluir este Registro?');\"><img src='img/icone_excluir.png' border='0'></a>"?>
+				</td>	
 			</tr>
 			<?php
 			}
