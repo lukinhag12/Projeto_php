@@ -1,24 +1,6 @@
 ﻿<?php
 /* INCLUDE PARA REALIZAR A CONEXÃO COM O BANCO	*/
 	include('config/config.php');
-	
-/*	FUNÇÃO PARA INVERTER O FORMATO DA DATA DO BANCO DE DADOS	*/
-	function inverter(&$data1)
-	{
-		$data1 = str_replace("-","",$data1);
-		
-		$dia = substr($data1,6,2);
-		$mes = substr($data1,4,2);
-		$ano = substr($data1,0,4);
-		
-		$data1 = NULL;
-		$dia .= "/";
-		$mes .= "/";
-		
-		$data1 .=$dia;
-		$data1 .=$mes;	
-		$data1 .=$ano;
-	}
 ?>
 
 <!DOCTYPE html>
@@ -89,6 +71,11 @@
 								</form>
 								
 								<br />
+								
+								<div>
+									<?php include("include_lista_de_registro.php"); ?>
+								</div>
+								
 								<br />
 								
 								<?php
@@ -105,20 +92,18 @@
 										}
 										if(!empty($nome) AND (($id_registro) == ''))
 										{
-											$sql .= " nome = '$nome'";	
+											$sql .= " nome LIKE '%$nome%'";	
 										}
 										
 										if (!empty($id_registro) and !empty($nome))
 										{
-											$sql .= "id = '$id_registro' AND nome = '$nome'";
+											$sql .= "id = '$id_registro' AND nome LIKE '%$nome%'";
 										}
-
 										/*
 											echo "<br />";
 												print_r($sql);
 											echo "<br />";
 										*/
-										
 										$busca = mysql_query($sql);
 										if(mysql_num_rows($busca)==0)
 										{
