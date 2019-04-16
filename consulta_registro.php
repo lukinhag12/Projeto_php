@@ -70,8 +70,6 @@
 									</table>
 								</form>
 								
-								<br />
-								
 								<div>
 									<?php include("include_lista_de_registro.php"); ?>
 								</div>
