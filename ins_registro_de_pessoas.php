@@ -20,6 +20,14 @@
 				
 				<div id="topo"> </div>
 				
+				<div id="menu">
+				
+					<!--	INCLUDE MENU DO CRUD	-->
+					
+					<?php include('menu_global_crud.php'); ?>
+
+				</div>
+				
 				<br />
 				
 				<div id="conteudo_painel">
@@ -30,19 +38,19 @@
 						
 						<div id="campos">	 
 							
-							<p id="titulos" align="center">Inserção de Registro de Pessoas </p>
+							<b>
+								<p id="titulos" align="center">Inserção de Registro de Pessoas </p>
+							</b>
 							
-							<br />
-							<hr width="98%"/>
-							<br />
-							
+							<br/>
+
 							<div id="formulario">
 								
 								<form action="" name="form" method="post">
 									<table border="0" cellpadding="5" cellspacing="10" >
 										
 										<tr>
-											<td>Nome:<span class="aviso">*</span></td>
+											<td>Nome:</td>
 											<td>
 												<input type="text" name="nome" placeholder="Informe o Nome" size="60" />
 											</td>
