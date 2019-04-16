@@ -1,11 +1,15 @@
-﻿
+﻿<?php
+
+	/* INCLUDE PARA REALIZAR A CONEXÃO COM O BANCO DE DADOS	*/
+	include('config/config.php');
+	
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
-		
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>Registro de Pessoas</title>
-
 	</head>
 	
 	<body>
@@ -54,7 +58,7 @@
 										<tr>
 											<td>E-mail:</td>
 											<td>
-												<input type="email" placeholder="Digite email" name="email" size="55" />
+												<input type="email" placeholder="Digite o email" name="email" size="60" />
 											</td>
 										</tr>
 										
@@ -90,3 +94,48 @@
 		</div>
 	</body>
 </html>
+
+<?php
+	// BOTÃO PARA GERAR O CADASTRAR REGISTRO DA PESSOA
+	if(isset($_POST['botao']))
+	{
+		$nome = $_POST['nome'];
+		$telefone = $_POST['telefone'];	
+		$email = $_POST['email'];
+		$data_nascimento = $_POST['data_nascimento'];	
+		
+		///////////////////////////// BUSCAR O ULTIMO REGISTRO DE ID NA TABELA, E GUARDA NA VARIAVEL ////////////////////////////////			
+		$sql_pega_id= "SELECT id FROM pessoa ORDER BY id DESC LIMIT 1";
+		$sql_query = mysql_query($sql_pega_id);
+		$pega_id = mysql_fetch_array($sql_query);
+		/*	
+			echo "<br />";
+				print_r($sql_pega_id);
+			echo "<br />";
+		*/	
+		$valor_id = $pega_id['id'];	
+		if($valor_id == 0){
+			$valor_id = 1;
+		}else{
+			$valor_id = $valor_id + 1;
+		}
+		
+		$sql_registro = "INSERT INTO pessoa (id, nome, telefone, email, data_nascimento) VALUES('$valor_id', '$nome', '$telefone', '$email', '$data_nascimento')";
+		/*
+			echo "<br />";
+				print_r($sql_registro);
+			echo "<br />";
+		*/
+		$insere_registro = mysql_query($sql_registro);// or die(mysql_error());	
+		if(mysql_affected_rows()>0)
+		{
+			echo "Registro de pessoa inserido com sucesso.";
+			exit;	
+		}
+		else
+		{
+			echo "Erro - registro de pessoa nao realizado, verique os dados de entrada.";
+			exit;
+		}
+	}
+?>
