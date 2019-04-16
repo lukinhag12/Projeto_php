@@ -17,18 +17,23 @@
 			<div id="principal">
 				
 				<div id="topo"></div>
-
-				<br />
+				
+				<div id="menu">
+					<!--	INCLUDE MENU DO CRUD	-->
+					<?php include('menu_global_crud.php'); ?>
+				</div>
+				
+				<br/>
 				
 				<div id="conteudo_painel">
 					
 					<div id="campos">	
 						
-						<p id="titulos" align="center">Consultar Registro de Pessoa</p>
+						<b>
+							<p id="titulos" align="center">Consultar Registro de Pessoas</p>
+						</b>
 						
-						<br />
-							<hr width="98%"/>
-						<br />
+						<br/>
 						
 						<div class="centralizar_form">
 							
