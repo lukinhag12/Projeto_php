@@ -8,6 +8,7 @@
 		<td>E-MAIL</td>
 		<td>DATA DE NASCIMENTO</td>
 		<td>DETALHES</td>
+		<td>IMPRIMIR</td>
 	</tr>
 
 	<?php
@@ -54,6 +55,8 @@
 				<td  class="resultada_consulta"><?php echo $email; ?></td>
 				<td  class="resultada_consulta"><?php echo $data_nascimento; ?></td>
 				<td class="resultada_consulta" align="center"><?php echo "<a href=alterar_registro.php?id=$id_registro><img src='img/icone_pesquisa.jpg' border='0'></a>"?></td>
+				
+				<td class="resultada_consulta" align="center"><?php echo "<a href=relatorios/rel_registro.php?id=$id_registro><img src='img/icone_mpressao.png' border='0'></a>"?></td>
 			</tr>
 			<?php
 			}
