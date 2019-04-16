@@ -64,6 +64,7 @@
 											<td>
 												<br/>
 												<input type="submit" name="botao" id="botao" value="Consultar" />
+												<input type="reset" name="botaoReset" id="botao" value="Limpar Campos Preenchidos" />
 											</td>
 										</tr>
 										
