@@ -64,17 +64,22 @@
 				
 				<div id="topo"></div>	
 				
+				<div id="menu">
+					<!--	INCLUDE MENU DO CRUD	-->
+					<?php include('menu_global_crud.php'); ?>
+				</div>
+				
 				<br />
 				
 				<div id="conteudo_painel">
 					
-					<div id="campos">	  
+					<div id="campos">
+					
+						<b>
+							<p id="titulos" align="center">Detalhes do Registro: ( <?php echo $id_registro;?> )</p>
+						<b>
 						
-						<p id="titulos" align="center">Detalhes do Registro: ( <?php echo $id_registro;?> )</p>
-						
-						<br />
-							<hr width="98%"/>
-						<br />
+						<br/>
 						
 						<div id="formularioLongo">
 							
@@ -84,7 +89,7 @@
 									
 									<tr>
 										<td>
-											Nome: <span class="aviso">*</span><br/> 
+											Nome: <br/> 
 											<input type="text" name="nome" size="60" value="<?php echo $nome; ?>" />
 										</td>
 									</tr>
